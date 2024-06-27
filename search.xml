@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Vscode AI辅助插件</title>
+    <url>/TextHexo/2024/06/27/Vscode%20AI%E8%BE%85%E5%8A%A9%E6%8F%92%E4%BB%B6/</url>
+    <content><![CDATA[<blockquote>
+<p>参考博客</p>
+<ol>
+<li></li>
+<li></li>
+</ol>
+</blockquote>
+<ul>
+<li></li>
+<li></li>
+<li></li>
+<li>Copilot：github30天免费使用，后续收费</li>
+<li>codegeeX</li>
+<li></li>
+</ul>
+]]></content>
+      <categories>
+        <category>AI</category>
+      </categories>
+      <tags>
+        <tag>AI插件,Vscode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/TextHexo/2024/06/25/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -36,76 +62,6 @@
       </categories>
       <tags>
         <tag>小记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何优雅的使用Github Action服务来将Hexo部署到Github Pages</title>
-    <url>/TextHexo/2024/06/26/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E4%BD%BF%E7%94%A8Github%20Action%E6%9C%8D%E5%8A%A1%E6%9D%A5%E5%B0%86Hexo%E9%83%A8%E7%BD%B2%E5%88%B0Github%20Pages/</url>
-    <content><![CDATA[<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><p>Bilibili视频教程-9分钟零成本搭建自动化部署个人博客(Hexo + Github Action + Page)：<a href="https://www.bilibili.com/video/BV1xTgTemEDU">https://www.bilibili.com/video/BV1xTgTemEDU</a></p>
-<p>Hexo官方文档：<a href="https://hexo.io/zh-cn/docs/">https://hexo.io/zh-cn/docs/</a></p>
-<p>利用 GitHub Action 自动部署 Hexo 博客：<a href="https://cloud.tencent.com/developer/article/2201648">https://cloud.tencent.com/developer/article/2201648</a></p>
-<p>Hexo主题-Icarus快速上手：<a href="https://ppoffice.github.io/hexo-theme-icarus/uncategorized/icarus%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/#install-npm">https://ppoffice.github.io/hexo-theme-icarus/uncategorized/icarus%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/#install-npm</a></p>
-<h1 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h1><p>当前PC环境中有Node和Git。版本可以参考Hexo文档。</p>
-<p>文章中出现的yourusername为Github用户名，your-repo为仓库名。</p>
-<h1 id="1-初始化Hexo"><a href="#1-初始化Hexo" class="headerlink" title="1. 初始化Hexo"></a>1. 初始化Hexo</h1><p>安装脚手架，初始化hexo，这会新建blog文件夹，进入后安装依赖。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">hexo init blog</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
-<h1 id="2-初始化仓库"><a href="#2-初始化仓库" class="headerlink" title="2. 初始化仓库"></a>2. 初始化仓库</h1><p>可以选择利用VSCode等软件直接对项目开源到github仓库。</p>
-<p>也可以手动去github创建一个空仓库，然后手动在命令行中推送。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git init</span><br><span class="line">git remote add origin https://github.com/yourusername/your-repo.git</span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;Initial commit&quot;</span></span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
-
-<h1 id="3-创建Token"><a href="#3-创建Token" class="headerlink" title="3. 创建Token"></a>3. 创建Token</h1><p>访问 Github-&gt;头像（右上角）-&gt;Settings-&gt;Developer Settings-&gt;Personal access tokens-&gt;generate new token,创建的 Token 名称随意，但必须勾选 repo 项 和 workflows 项</p>
-<p>在个人设置中新增一个Personal access tokens。至少要包含repo权限，然后记住token。<br>这个token是给Github Action用的，Github Action会把Hexo编译部署到gh-pages分支。</p>
-<img src="/TextHexo/2024/06/26/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E4%BD%BF%E7%94%A8Github%20Action%E6%9C%8D%E5%8A%A1%E6%9D%A5%E5%B0%86Hexo%E9%83%A8%E7%BD%B2%E5%88%B0Github%20Pages/image1.png" class="" title="This is an example image">
-
-<p>之后需要自己到仓库的 Settings-&gt;Secrets-&gt;actions 下添加环境变量</p>
-<p>随后在存放Hexo代码的仓库里把这个Token新增进去，名称为GH_TOKEN(随意，后面需要一致)。</p>
-<img src="/TextHexo/2024/06/26/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E4%BD%BF%E7%94%A8Github%20Action%E6%9C%8D%E5%8A%A1%E6%9D%A5%E5%B0%86Hexo%E9%83%A8%E7%BD%B2%E5%88%B0Github%20Pages/image.png" class="" title="This is an example image">
-<h1 id="4-修改-config-yml"><a href="#4-修改-config-yml" class="headerlink" title="4. 修改_config.yml"></a>4. 修改_config.yml</h1><p>在_config.yml中修改deploy字段。指示Hexo在deploy时的推送地址。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://github.com/yourusername/your-repo.git</span><br><span class="line">  branch: gh-pages</span><br></pre></td></tr></table></figure>
-
-<h1 id="5-配置Github-Action工作流"><a href="#5-配置Github-Action工作流" class="headerlink" title="5. 配置Github Action工作流"></a>5. 配置Github Action工作流</h1><p>在.github文件夹下新增workflows文件夹，然后新增deploy.yml文件，内容如下。</p>
-<p>里面有个node-version要和你本地的node一致。</p>
-<p>步骤大致意思就是使用ubuntu-latest作为基础环境，然后安装各种依赖，随后hexo generate生成博客网站静态文件夹，<br>把这个文件夹推送到同一仓库的gh-pages分支。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">name: Deploy Hexo to GitHub Pages</span><br><span class="line"></span><br><span class="line">on:</span><br><span class="line">  push:</span><br><span class="line">    branches:</span><br><span class="line">      - main  <span class="comment"># 当推送到 main 分支时触发</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">jobs</span>:</span><br><span class="line">  build:</span><br><span class="line">    runs-on: ubuntu-latest</span><br><span class="line"></span><br><span class="line">    steps:</span><br><span class="line">      - name: Checkout repository</span><br><span class="line">        uses: actions/checkout@v2</span><br><span class="line">        with:</span><br><span class="line">          submodules: <span class="literal">false</span>  <span class="comment"># 禁用子模块检查</span></span><br><span class="line"></span><br><span class="line">      - name: Setup Node.js</span><br><span class="line">        uses: actions/setup-node@v2</span><br><span class="line">        with:</span><br><span class="line">          node-version: <span class="string">&#x27;18&#x27;</span></span><br><span class="line"></span><br><span class="line">      - name: Install Dependencies</span><br><span class="line">        run: npm install</span><br><span class="line"></span><br><span class="line">      - name: Install Hexo Git Deployer</span><br><span class="line">        run: |</span><br><span class="line">          npm install hexo-deployer-git --save</span><br><span class="line">          npm install hexo-cli -g</span><br><span class="line"></span><br><span class="line">      - name: Clean and Generate Static Files</span><br><span class="line">        run: |</span><br><span class="line">          hexo clean</span><br><span class="line">          hexo generate</span><br><span class="line"></span><br><span class="line">      - name: Configure Git</span><br><span class="line">        run: |</span><br><span class="line">          git config --global user.name <span class="string">&#x27;github-actions[bot]&#x27;</span></span><br><span class="line">          git config --global user.email <span class="string">&#x27;github-actions[bot]@users.noreply.github.com&#x27;</span></span><br><span class="line"></span><br><span class="line">      - name: Deploy to GitHub Pages</span><br><span class="line">        <span class="built_in">env</span>:</span><br><span class="line">          GH_TOKEN: <span class="variable">$&#123;&#123; secrets.GH_TOKEN &#125;</span>&#125;</span><br><span class="line">        run: |</span><br><span class="line">          <span class="built_in">cd</span> public/</span><br><span class="line">          git init</span><br><span class="line">          git add -A</span><br><span class="line">          git commit -m <span class="string">&quot;Create by workflows&quot;</span></span><br><span class="line">          git remote add origin https://<span class="variable">$&#123;&#123; secrets.GH_TOKEN &#125;</span>&#125;@github.com/yourusername/your-repo.git</span><br><span class="line">          git push origin HEAD:gh-pages -f</span><br></pre></td></tr></table></figure>
-
-<h1 id="6-推送验证"><a href="#6-推送验证" class="headerlink" title="6. 推送验证"></a>6. 推送验证</h1><p>把刚才更新的所有文件都推送一遍，github就会触发工作流，然后去网站看工作流运转的如何。<br>等一切运转完毕，就会发现仓库多出一个gh-pages分支。</p>
-<h1 id="7-配置Github-Pages"><a href="#7-配置Github-Pages" class="headerlink" title="7. 配置Github Pages"></a>7. 配置Github Pages</h1><p>在仓库settings中配置page来源为gh-pages分支即可。等待网站部署完毕，就可以看了。网站链接可以在settings的GitHub Pages看到，也可以去action里看到。</p>
-<h1 id="8-修改Hexo主题样式"><a href="#8-修改Hexo主题样式" class="headerlink" title="8. 修改Hexo主题样式"></a>8. 修改Hexo主题样式</h1><p>以一个比较热门的主题为演示示例，参考地址<a href="https://github.com/ppoffice/hexo-theme-icarus%E3%80%82">https://github.com/ppoffice/hexo-theme-icarus。</a></p>
-<p>若要使用NPM将Icarus安装为Node包，在你的Hexo站点根目录运行如下命令：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -S hexo-theme-icarus hexo-renderer-inferno</span><br></pre></td></tr></table></figure>
-
-<p>接下来，使用hexo命令修改主题为Icarus:</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo config theme icarus</span><br></pre></td></tr></table></figure>
-
-<p>会发现多出一个_config.icarus.yml文件。这是Icarus主题的配置文件。</p>
-<p>最后推送到仓库，等待部署后，就可以了。</p>
-<h1 id="10-添加文章"><a href="#10-添加文章" class="headerlink" title="10. 添加文章"></a>10. 添加文章</h1><p>你可以执行下列命令来创建一篇新文章或者新的页面。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
-
-<p>您可以在命令中指定文章的布局（layout），默认为 post，可以通过修改 _config.yml 中的 default_layout 参数来指定默认布局。</p>
-<p>文章添加编辑后，现在只需要推送到仓库，那么github不仅会保存你的Hexo个人博客源码，还会自动更新个人博客静态页面到gh-pages，由此触发github-page功能来更新你的个人博客网站。</p>
-<h1 id="遇到了一些问题和方案"><a href="#遇到了一些问题和方案" class="headerlink" title="遇到了一些问题和方案"></a>遇到了一些问题和方案</h1><h2 id="1-网站没有样式问题"><a href="#1-网站没有样式问题" class="headerlink" title="1. 网站没有样式问题"></a>1. 网站没有样式问题</h2><p>在网站打开F12，发现css等样式资源无法加载，仔细查看报错原因和请求地址，发现并不是当前仓库。</p>
-<p>缺少仓库地址，所以把请求地址复制一份，并在后面添加上仓库名即可，这需要修改_config.yml中修改url字段。yourusername似乎为小写。</p>
-<p>推送后等待工作流执行，查看结果。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">url: https://yourusername.github.io/your-repo/</span><br><span class="line">root: /your-repo/</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-图片不显示"><a href="#2-图片不显示" class="headerlink" title="2. 图片不显示"></a>2. 图片不显示</h2><p>  在_config.yml中设置</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">post_asset_folder: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<p>  意思是每个md博文会单独配套一个同名文件夹，用来存放图片。形如</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span>/_posts/</span><br><span class="line">├── my-new-post.md</span><br><span class="line">└── my-new-post/</span><br><span class="line">    └── example.jpg</span><br></pre></td></tr></table></figure>
-
-<p>hexo提供三种语法</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;% asset_path slug %&#125;</span><br><span class="line">&#123;% asset_img slug [title] %&#125;</span><br><span class="line">&#123;% asset_link slug [title] %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>那么在md中可以这样引用图片</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;% asset_img example.jpg This is an example image %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这样一来，部署的时候图片就不会不显示了，但是有个新的问题，<br>我在本地编辑md的时候无法预览图片怎么办。</p>
-<p>建议用VSCode下载插件vscode-hexo和Hexo Utils，随后在左边栏目就可以看到新Hexo Utils的新菜单，只要你的VSCode当前打开的文件夹是hexo的根目录，那么插件就会自动识别到，当你对md文件使用“侧边预览”时，图片就正常显示了。</p>
-]]></content>
-      <tags>
-        <tag>hexo安装</tag>
       </tags>
   </entry>
   <entry>
@@ -196,6 +152,105 @@
 ]]></content>
       <tags>
         <tag>hexo安装</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何优雅的使用Github Action服务来将Hexo部署到Github Pages</title>
+    <url>/TextHexo/2024/06/26/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E4%BD%BF%E7%94%A8Github%20Action%E6%9C%8D%E5%8A%A1%E6%9D%A5%E5%B0%86Hexo%E9%83%A8%E7%BD%B2%E5%88%B0Github%20Pages/</url>
+    <content><![CDATA[<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><p>Bilibili视频教程-9分钟零成本搭建自动化部署个人博客(Hexo + Github Action + Page)：<a href="https://www.bilibili.com/video/BV1xTgTemEDU">https://www.bilibili.com/video/BV1xTgTemEDU</a></p>
+<p>Hexo官方文档：<a href="https://hexo.io/zh-cn/docs/">https://hexo.io/zh-cn/docs/</a></p>
+<p>利用 GitHub Action 自动部署 Hexo 博客：<a href="https://cloud.tencent.com/developer/article/2201648">https://cloud.tencent.com/developer/article/2201648</a></p>
+<p>Hexo主题-Icarus快速上手：<a href="https://ppoffice.github.io/hexo-theme-icarus/uncategorized/icarus%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/#install-npm">https://ppoffice.github.io/hexo-theme-icarus/uncategorized/icarus%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/#install-npm</a></p>
+<h1 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h1><p>当前PC环境中有Node和Git。版本可以参考Hexo文档。</p>
+<p>文章中出现的yourusername为Github用户名，your-repo为仓库名。</p>
+<h1 id="1-初始化Hexo"><a href="#1-初始化Hexo" class="headerlink" title="1. 初始化Hexo"></a>1. 初始化Hexo</h1><p>安装脚手架，初始化hexo，这会新建blog文件夹，进入后安装依赖。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">hexo init blog</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<h1 id="2-初始化仓库"><a href="#2-初始化仓库" class="headerlink" title="2. 初始化仓库"></a>2. 初始化仓库</h1><p>可以选择利用VSCode等软件直接对项目开源到github仓库。</p>
+<p>也可以手动去github创建一个空仓库，然后手动在命令行中推送。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git init</span><br><span class="line">git remote add origin https://github.com/yourusername/your-repo.git</span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;Initial commit&quot;</span></span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
+
+<h1 id="3-创建Token"><a href="#3-创建Token" class="headerlink" title="3. 创建Token"></a>3. 创建Token</h1><p>访问 Github-&gt;头像（右上角）-&gt;Settings-&gt;Developer Settings-&gt;Personal access tokens-&gt;generate new token,创建的 Token 名称随意，但必须勾选 repo 项 和 workflows 项</p>
+<p>在个人设置中新增一个Personal access tokens。至少要包含repo权限，然后记住token。<br>这个token是给Github Action用的，Github Action会把Hexo编译部署到gh-pages分支。</p>
+<img src="/TextHexo/2024/06/26/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E4%BD%BF%E7%94%A8Github%20Action%E6%9C%8D%E5%8A%A1%E6%9D%A5%E5%B0%86Hexo%E9%83%A8%E7%BD%B2%E5%88%B0Github%20Pages/image1.png" class="" title="This is an example image">
+
+<p>之后需要自己到仓库的 Settings-&gt;Secrets-&gt;actions 下添加环境变量</p>
+<p>随后在存放Hexo代码的仓库里把这个Token新增进去，名称为GH_TOKEN(随意，后面需要一致)。</p>
+<img src="/TextHexo/2024/06/26/%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E4%BD%BF%E7%94%A8Github%20Action%E6%9C%8D%E5%8A%A1%E6%9D%A5%E5%B0%86Hexo%E9%83%A8%E7%BD%B2%E5%88%B0Github%20Pages/image.png" class="" title="This is an example image">
+<h1 id="4-修改-config-yml"><a href="#4-修改-config-yml" class="headerlink" title="4. 修改_config.yml"></a>4. 修改_config.yml</h1><p>在_config.yml中修改deploy字段。指示Hexo在deploy时的推送地址。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://github.com/yourusername/your-repo.git</span><br><span class="line">  branch: gh-pages</span><br></pre></td></tr></table></figure>
+
+<h1 id="5-配置Github-Action工作流"><a href="#5-配置Github-Action工作流" class="headerlink" title="5. 配置Github Action工作流"></a>5. 配置Github Action工作流</h1><p>在.github文件夹下新增workflows文件夹，然后新增deploy.yml文件，内容如下。</p>
+<p>里面有个node-version要和你本地的node一致。</p>
+<p>步骤大致意思就是使用ubuntu-latest作为基础环境，然后安装各种依赖，随后hexo generate生成博客网站静态文件夹，<br>把这个文件夹推送到同一仓库的gh-pages分支。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">name: Deploy Hexo to GitHub Pages</span><br><span class="line"></span><br><span class="line">on:</span><br><span class="line">  push:</span><br><span class="line">    branches:</span><br><span class="line">      - main  <span class="comment"># 当推送到 main 分支时触发</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">jobs</span>:</span><br><span class="line">  build:</span><br><span class="line">    runs-on: ubuntu-latest</span><br><span class="line"></span><br><span class="line">    steps:</span><br><span class="line">      - name: Checkout repository</span><br><span class="line">        uses: actions/checkout@v2</span><br><span class="line">        with:</span><br><span class="line">          submodules: <span class="literal">false</span>  <span class="comment"># 禁用子模块检查</span></span><br><span class="line"></span><br><span class="line">      - name: Setup Node.js</span><br><span class="line">        uses: actions/setup-node@v2</span><br><span class="line">        with:</span><br><span class="line">          node-version: <span class="string">&#x27;18&#x27;</span></span><br><span class="line"></span><br><span class="line">      - name: Install Dependencies</span><br><span class="line">        run: npm install</span><br><span class="line"></span><br><span class="line">      - name: Install Hexo Git Deployer</span><br><span class="line">        run: |</span><br><span class="line">          npm install hexo-deployer-git --save</span><br><span class="line">          npm install hexo-cli -g</span><br><span class="line"></span><br><span class="line">      - name: Clean and Generate Static Files</span><br><span class="line">        run: |</span><br><span class="line">          hexo clean</span><br><span class="line">          hexo generate</span><br><span class="line"></span><br><span class="line">      - name: Configure Git</span><br><span class="line">        run: |</span><br><span class="line">          git config --global user.name <span class="string">&#x27;github-actions[bot]&#x27;</span></span><br><span class="line">          git config --global user.email <span class="string">&#x27;github-actions[bot]@users.noreply.github.com&#x27;</span></span><br><span class="line"></span><br><span class="line">      - name: Deploy to GitHub Pages</span><br><span class="line">        <span class="built_in">env</span>:</span><br><span class="line">          GH_TOKEN: <span class="variable">$&#123;&#123; secrets.GH_TOKEN &#125;</span>&#125;</span><br><span class="line">        run: |</span><br><span class="line">          <span class="built_in">cd</span> public/</span><br><span class="line">          git init</span><br><span class="line">          git add -A</span><br><span class="line">          git commit -m <span class="string">&quot;Create by workflows&quot;</span></span><br><span class="line">          git remote add origin https://<span class="variable">$&#123;&#123; secrets.GH_TOKEN &#125;</span>&#125;@github.com/yourusername/your-repo.git</span><br><span class="line">          git push origin HEAD:gh-pages -f</span><br></pre></td></tr></table></figure>
+
+<h1 id="6-推送验证"><a href="#6-推送验证" class="headerlink" title="6. 推送验证"></a>6. 推送验证</h1><p>把刚才更新的所有文件都推送一遍，github就会触发工作流，然后去网站看工作流运转的如何。<br>等一切运转完毕，就会发现仓库多出一个gh-pages分支。</p>
+<h1 id="7-配置Github-Pages"><a href="#7-配置Github-Pages" class="headerlink" title="7. 配置Github Pages"></a>7. 配置Github Pages</h1><p>在仓库settings中配置page来源为gh-pages分支即可。等待网站部署完毕，就可以看了。网站链接可以在settings的GitHub Pages看到，也可以去action里看到。</p>
+<h1 id="8-修改Hexo主题样式"><a href="#8-修改Hexo主题样式" class="headerlink" title="8. 修改Hexo主题样式"></a>8. 修改Hexo主题样式</h1><p>以一个比较热门的主题为演示示例，参考地址<a href="https://github.com/ppoffice/hexo-theme-icarus%E3%80%82">https://github.com/ppoffice/hexo-theme-icarus。</a></p>
+<p>若要使用NPM将Icarus安装为Node包，在你的Hexo站点根目录运行如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -S hexo-theme-icarus hexo-renderer-inferno</span><br></pre></td></tr></table></figure>
+
+<p>接下来，使用hexo命令修改主题为Icarus:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo config theme icarus</span><br></pre></td></tr></table></figure>
+
+<p>会发现多出一个_config.icarus.yml文件。这是Icarus主题的配置文件。</p>
+<p>最后推送到仓库，等待部署后，就可以了。</p>
+<h1 id="10-添加文章"><a href="#10-添加文章" class="headerlink" title="10. 添加文章"></a>10. 添加文章</h1><p>你可以执行下列命令来创建一篇新文章或者新的页面。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
+
+<p>您可以在命令中指定文章的布局（layout），默认为 post，可以通过修改 _config.yml 中的 default_layout 参数来指定默认布局。</p>
+<p>文章添加编辑后，现在只需要推送到仓库，那么github不仅会保存你的Hexo个人博客源码，还会自动更新个人博客静态页面到gh-pages，由此触发github-page功能来更新你的个人博客网站。</p>
+<h1 id="遇到了一些问题和方案"><a href="#遇到了一些问题和方案" class="headerlink" title="遇到了一些问题和方案"></a>遇到了一些问题和方案</h1><h2 id="1-网站没有样式问题"><a href="#1-网站没有样式问题" class="headerlink" title="1. 网站没有样式问题"></a>1. 网站没有样式问题</h2><p>在网站打开F12，发现css等样式资源无法加载，仔细查看报错原因和请求地址，发现并不是当前仓库。</p>
+<p>缺少仓库地址，所以把请求地址复制一份，并在后面添加上仓库名即可，这需要修改_config.yml中修改url字段。yourusername似乎为小写。</p>
+<p>推送后等待工作流执行，查看结果。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">url: https://yourusername.github.io/your-repo/</span><br><span class="line">root: /your-repo/</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-图片不显示"><a href="#2-图片不显示" class="headerlink" title="2. 图片不显示"></a>2. 图片不显示</h2><p>  在_config.yml中设置</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">post_asset_folder: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>  意思是每个md博文会单独配套一个同名文件夹，用来存放图片。形如</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span>/_posts/</span><br><span class="line">├── my-new-post.md</span><br><span class="line">└── my-new-post/</span><br><span class="line">    └── example.jpg</span><br></pre></td></tr></table></figure>
+
+<p>hexo提供三种语法</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;% asset_path slug %&#125;</span><br><span class="line">&#123;% asset_img slug [title] %&#125;</span><br><span class="line">&#123;% asset_link slug [title] %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>那么在md中可以这样引用图片</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&#123;% asset_img example.jpg This is an example image %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样一来，部署的时候图片就不会不显示了，但是有个新的问题，<br>我在本地编辑md的时候无法预览图片怎么办。</p>
+<p>建议用VSCode下载插件vscode-hexo和Hexo Utils，随后在左边栏目就可以看到新Hexo Utils的新菜单，只要你的VSCode当前打开的文件夹是hexo的根目录，那么插件就会自动识别到，当你对md文件使用“侧边预览”时，图片就正常显示了。</p>
+]]></content>
+      <tags>
+        <tag>hexo安装</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>鲁班R2010刷入uboot-openwrt-Padavan固件教程</title>
+    <url>/TextHexo/2024/06/26/%E9%B2%81%E7%8F%ADR2010%E5%88%B7%E5%85%A5uboot-openwrt-Padavan%E5%9B%BA%E4%BB%B6%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<p><font color='red'><strong>断开网络链接</strong></font></p>
+<p>1.上电，大概在10秒-15秒左右，路由红灯闪烁<br>2.这时候按joy键，2-3下&#x2F;秒,路由变为绿灯快闪，这时候SD卡进入低格模式，千万不要断电<br>3.大概3-4分钟后，路由器会自动重启两次2-3分钟，变成了一个全新的刚出厂路由器。<br>先登入192.168.68.1 设置下密码<br>然后登入<br><a href="http://192.168.68.1/cgi-bin/luci/">http://192.168.68.1/cgi-bin/luci/</a> </p>
+<p>这个地址可以直接进鲁班的openwrt后台</p>
+<p>账号root 密码 你自己设置的路由器密码（或者password）<br>选择system 选择startup<br>如图位置 加入dropbear<br>保存 重新启动。就开通了ssh</p>
+<img src="/TextHexo/2024/06/26/%E9%B2%81%E7%8F%ADR2010%E5%88%B7%E5%85%A5uboot-openwrt-Padavan%E5%9B%BA%E4%BB%B6%E6%95%99%E7%A8%8B/210411oleapwkna0hnlkfn.jpeg" class="">
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">若第一步卡住了：</span><br><span class="line">解决方法：</span><br><span class="line">用chrome或者其它chromium内核的浏览器登录上京东云无线宝，按F12进入控制台。</span><br><span class="line">粘贴以下代码并回车执行：</span><br><span class="line">$.ajax(&#123;</span><br><span class="line">url: <span class="string">&#x27;http://&#x27;</span> + $.cookie(<span class="string">&quot;HostAddrIP&quot;</span>) + <span class="string">&#x27;/jdcapi&#x27;</span>,</span><br><span class="line">async: <span class="literal">false</span>,</span><br><span class="line">data: JSON.stringify(&#123;</span><br><span class="line">jsonrpc: <span class="string">&quot;2.0&quot;</span>,</span><br><span class="line"><span class="built_in">id</span>: 1,</span><br><span class="line">method: <span class="string">&quot;call&quot;</span>,</span><br><span class="line">params: [</span><br><span class="line">$.cookie(<span class="string">&quot;sessionid&quot;</span>),</span><br><span class="line"><span class="string">&quot;service&quot;</span>,</span><br><span class="line"><span class="string">&quot;set&quot;</span>,</span><br><span class="line">&#123;</span><br><span class="line"><span class="string">&quot;name&quot;</span>: <span class="string">&quot;dropbear&quot;</span>,</span><br><span class="line"><span class="string">&quot;instances&quot;</span>: &#123;<span class="string">&quot;instance1&quot;</span>: &#123;<span class="string">&quot;command&quot;</span>: [<span class="string">&quot;/usr/sbin/dropbear&quot;</span>]&#125;&#125;</span><br><span class="line">&#125;</span><br><span class="line">]</span><br><span class="line">&#125;),</span><br><span class="line">dataType: <span class="string">&#x27;json&#x27;</span>,</span><br><span class="line"><span class="built_in">type</span>: <span class="string">&#x27;POST&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line">dropbear已启动，使用任意ssh客户端登录。</span><br><span class="line">用户名root密码就是系统登入密码</span><br><span class="line">如需开机启动，可将dropbear添加到/etc/rc.loca</span><br></pre></td></tr></table></figure>
+
+<p>之后打开ssh工具连接，<br>账号root 密码是自己设置的路由器登入密码</p>
+<p>可以先备份factory分区，命令：dd if&#x3D;&#x2F;dev&#x2F;mtd2 of&#x3D;&#x2F;tmp&#x2F;factory.bin<br>上传boot文件到tmp</p>
+<p>（上传命令：scp &#x2F;path&#x2F;filename username@servername:&#x2F;path）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">username:用户名（例如：root）</span><br><span class="line">servername:连接的ip地址（例如：192.168.68.1）</span><br></pre></td></tr></table></figure>
+
+<p>刷入uboot指令：mtd -r write &#x2F;tmp&#x2F; u-boot-mt7621-68.bin Bootloader</p>
+<img src="/TextHexo/2024/06/26/%E9%B2%81%E7%8F%ADR2010%E5%88%B7%E5%85%A5uboot-openwrt-Padavan%E5%9B%BA%E4%BB%B6%E6%95%99%E7%A8%8B/211513p1mw7mzq4y0nnepm.png" class="">
+
+<p>之后拔电按住joy按键不放上电，看到网络显示连接后松开，浏览器打开192.168.68.1，进入uboot上传initramfs固件等待5分钟，重新打开192.168.68.1进入openwrt界面<br>上传sysupgrade固件，默认ip：192.168.68.1 密码：password<br>padavan刷法一样。进入uboot刷写。</p>
+<p>uboot openwrt Padavan 固件 另外添加救砖恢复用的 编程器固件 原厂固件下载地址：链接: <a href="https://pan.baidu.com/s/1mS0aBVWlzkjHGz9F6AYzWg?pwd=fbau">https://pan.baidu.com/s/1mS0aBVWlzkjHGz9F6AYzWg?pwd=fbau</a> 提取码: fbau</p>
+]]></content>
+      <categories>
+        <category>刷机</category>
+      </categories>
+      <tags>
+        <tag>鲁班刷机</tag>
       </tags>
   </entry>
 </search>
